@@ -17,6 +17,7 @@ stdin.on('data', data => {
 });
 
 process.on('exit', () => stdout.write('Goodbye!'));
+process.on("SIGINT", () => process.exit());
 
 function writeFile(text) {
   fs.appendFile(path.join(__dirname, 'text.txt'), `${text}\n`, (err) => {
